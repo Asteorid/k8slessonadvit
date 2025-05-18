@@ -1,0 +1,61 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-hosts
+
+spec:
+  rules:
+  - host: www.adil.kz
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: main
+              port:
+                number: 80
+
+  - host: www.adil-web1.kz
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: web1
+              port:
+                number: 80
+
+  - host: www.adil-web2.kz
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: web2
+              port:
+                number: 80
+
+  - host: www.adil-web2x.kz
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: web2x
+              port:
+                number: 80
+
+  - host: cat.tomcat.kz
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: tomcat
+              port:
+                number: 8080
